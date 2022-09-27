@@ -1,5 +1,5 @@
 This blog includes an internship summary in Handshakes as a Machine Learning Intern. 
-I was involved in 3 projects during my time there, and I will be talking more about these projects below. 
+I was involved in 3 projects during my time there, and I will talk more about these projects below. 
 
 3 Machine Learning Projects: 
   1. Basic Image Classification using Pytorch/ Pytorch Lightning
