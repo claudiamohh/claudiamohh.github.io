@@ -1,25 +1,24 @@
 ## Reimplement Tablenet Paper using Pytorch Lightning
 
- The Marmot dataset is used to train the TableNet model. The dataset consists of: images, table_mask, column_mask.
- Examples of dataset: 
- 
- To have a better understanding of the Marmot dataset, an exploratory data analysis (EDA) of the dataset was created. 
+ The Marmot dataset is used to train the TableNet model. The dataset consists of: images, table_mask, column_mask. 
  
  Examples of dataset: 
  ![Screenshot 2022-09-28 005120](https://user-images.githubusercontent.com/107597583/192587968-0a756041-40f2-46de-be96-4ef0390f90f0.png)
  
   If a table/column exists, it will be covered with a white area in the table_mask/column_mask. Thus, the pixels in the white area will be labeled '255' (table/column exists) while the pixels in the black area will be labeled '0' (no table/column). 
 
+ To have a better understanding of the Marmot dataset, an exploratory data analysis (EDA) of the dataset was created.
  The EDA notebook was essential as it allowed me to understand each and every detail of the dataset.
+ 
  There were several errors in the dataset: 
   1. 509 different images in the dataset whereas there are 510 column and table masks files
   2. table_mask displays more than one table when the image has only one table (which can be seen below)
   ![image](https://user-images.githubusercontent.com/107597583/192589249-1ce53acd-7abc-4414-a5cc-bfefaafa2f3e.png)
 
  
- However, since the model is built using **semantic segmantation**, it predicts the class label for each pixel which will not be affect the training of the model. 
+ However, since the model is built using **semantic segmantation**, which predicts the class label for each pixel, it will not be affect the training of the model. 
 
- Inititially, the basic model with no parameters was not learning at all and instead, training loss spiked. Hence, the model was subsequently created with different parameters to find the best one. Below are the different parameters used.  
+ Inititially, the basic model with no parameters was not learning at all and instead, training loss spiked. Hence, the model was subsequently trained with different parameters to find the best one. Below are the different parameters used that were trained for 3 times to get the best accuracy.  
  
 | Model | No. of epochs | Validation Loss | Binary mean IOU for table | Binary mean IOU for column | 
 |-------|---------------|-----------------|---------------------------|----------------------------|
