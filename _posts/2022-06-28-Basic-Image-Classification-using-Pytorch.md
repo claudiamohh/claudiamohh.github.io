@@ -17,4 +17,4 @@ Overall, these are my learning points from this project:
   - Difference between Pytorch and Pytorch Lightning 
   - Added argsparse to suit user's preference 
 
-Github Repository: https://github.com/claudiamohh/pytorch-image-classifier
+Github Repository: [Pytorch Image Classifier](https://github.com/claudiamohh/pytorch-image-classifier)
