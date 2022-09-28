@@ -12,7 +12,7 @@ For more details on each project, it can be found here:
 
   2. Table Extraction using TableNet Model with Pytorch Lightning
 
-      This project is to implement the [TableNet model](https://arxiv.org/abs/2001.01469), a novel deep learning model trained on dual tasks of table detection and structure recognition in an end-to-end fashion, to extract tables from images. It uses [VGG-19 pretrained model](https://arxiv.org/abs/1409.1556) as the encoder to extract features from images and outputs table region and column region masks from table decoder and column decoder, respectively. More details on the training scripts, experimental results, best model checkpoint and demo script can be found in my Github repsitory: [lightning-tablenet](https://github.com/claudiamohh/lightning-tablenet).
+      This project is to implement the [TableNet model](https://arxiv.org/abs/2001.01469), a novel deep learning model trained on dual tasks of table detection and structure recognition in an end-to-end fashion, to extract tables from images. It uses [VGG-19 pretrained model](https://arxiv.org/abs/1409.1556) as the encoder to extract features from images and outputs table region and column region masks from table decoder and column decoder, respectively. More details on the training scripts, experimental results, model checkpoint and demo script can be found in my Github repsitory: [lightning-tablenet](https://github.com/claudiamohh/lightning-tablenet).
       
   3. Annotation of Table Structure Dataset for microsoft/table-transformer Model
      
