@@ -1,4 +1,4 @@
-## Image Table Extraction using Table Transformer Model
+## Annotation of Table Structure Dataset for microsoft/table-transformer Model
 
 My last project was to extract tables from pdf files. This project demands 3 smaller tasks:
   - table detection (TD), locates the table
