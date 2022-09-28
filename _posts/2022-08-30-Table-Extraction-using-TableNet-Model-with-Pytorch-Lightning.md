@@ -1,4 +1,4 @@
-## Reimplement Tablenet Paper using Pytorch Lightning
+## Table Extraction using TableNet Model with Pytorch Lightning
 
  The Marmot dataset is used to train the TableNet model. The dataset consists of: images, table_mask, column_mask. 
  
