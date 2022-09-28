@@ -1,8 +1,12 @@
-This blog includes an internship summary in Handshakes as a Machine Learning Intern. 
-I was involved in 3 projects during my time there, and I will breifly talk more about these projects below. 
+This blog includes an internship summary in Handshakes as a Machine Learning Intern (June 2022 - Sep 2022). 
 
-### 3 Machine Learning Projects: 
-  1. Image Classification with Pytorch / Pytorch Lightning
+For more details on each project, it can be found here:  
+  - [Image Classification with Pytorch / Pytorch Lightning](https://claudiamohh.github.io/2022/06/28/Image-Classification-with-Pytorch.html)
+  - [Table Extraction using TableNet Model with Pytorch Lightning](https://claudiamohh.github.io/2022/08/30/Table-Extraction-using-TableNet-Model-with-Pytorch-Lightning.html)
+  - [Annotation of Table Structure Dataset for microsoft/table-transformer Model](https://claudiamohh.github.io/2022/09/23/Annotation-of-Table-Structure-Dataset-for-table-transformor-model.html)
+
+### Overview of Machine Learning Projects done in Handshakes: 
+  1. Image Classification with Pytorch / Pytorch Lightning 
      
       This project serves as a gentle introduction to image classification task using deep learning models with Pytorch and Pytorch Lightning. It includes training of Linear models and Convolutional neural network (CNN) models to classify images of handwritten digits (i.e., MNIST dataset) and images of objects (i.e., CIFAR10 dataset), like airplanes, cars, bird and etc. Github repository: [pytorch-image-classifier](https://github.com/claudiamohh/pytorch-image-classifier)
 
