@@ -1,4 +1,4 @@
-## Basic Image Classification using Pytorch/ Pytorch Lightning
+## Image Classification with Pytorch / Pytorch Lightning
 
 In the first three weeks of my internship, I learned and created Convolutional Neural Network (CNN) models with no prior deep learning background. 
 Using the **MNIST and CIFAR10 datasets**, I created 2 CNN models:
