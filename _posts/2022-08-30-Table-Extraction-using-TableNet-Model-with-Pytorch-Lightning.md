@@ -1,5 +1,9 @@
 ## Table Extraction using TableNet Model with Pytorch Lightning
 
+This project uses semantic segmentation to label each pixel of an image with a corresponding class of what is being represented. One popular approach for semantic segmentation models is to follow an encoder/decoder structure, which explains the reason of using TableNet model. 
+
+---
+### Dataset
  The Marmot dataset is used to train the TableNet model. The dataset consists of: images, table_mask, column_mask. 
  
  Examples of dataset: 
@@ -8,17 +12,18 @@
   If a table/column exists, it will be covered with a white area in the table_mask/column_mask. Thus, the pixels in the white area will be labeled '255' (table/column exists) while the pixels in the black area will be labeled '0' (no table/column). 
 
  To have a better understanding of the Marmot dataset, an exploratory data analysis (EDA) of the dataset was created.
- The EDA notebook was essential as it allowed me to understand each and every detail of the dataset.
+ The [EDA notebook](https://github.com/claudiamohh/lightning-tablenet/blob/main/notebooks/Marmot_EDA.ipynb) was essential as it allowed me to understand each and every detail of the dataset.
  
  There were several errors in the dataset: 
   1. 509 different images in the dataset whereas there are 510 column and table masks files
-  2. table_mask displays more than one table when the image has only one table (which can be seen below)
+  2. table_mask displays more than one table when the image has only one table, shown below
+  
   ![image](https://user-images.githubusercontent.com/107597583/192589249-1ce53acd-7abc-4414-a5cc-bfefaafa2f3e.png)
 
- 
- However, since the model is built using **semantic segmantation**, which predicts the class label for each pixel, it will not be affect the training of the model. 
+ ---
+### Experimental Results and Discussion 
 
- Inititially, the basic model with no parameters was not learning at all and instead, training loss spiked. Hence, the model was subsequently trained with different parameters to find the best one. Below are the different parameters used that were trained for 3 times to get the best accuracy.  
+ Initially, the baseline model with Stochastic Gradient Descent (SGD) optimizer was not learning and it had instable training loss, spiking up and down. Hence, the model was subsequently trained with different parameters and Adam optimizer. Although these new models still have instable training loss, the one with gradient clipping was found to stabilize the training loss. Below are the results of the models with different parameters, trained for 3 times to get the best accuracy.  
  
 | Model | No. of epochs | Validation Loss | Binary mean IOU for table | Binary mean IOU for column | 
 |-------|---------------|-----------------|---------------------------|----------------------------|
@@ -45,17 +50,18 @@
 |21. tablenet_baseline_sgd_onecycelr_lowlr_2|91|0.804|0.161|0.233 |
 |22. tablenet_baseline_sgd_onecycelr_lowlr_3|37|0.648|0.177| 0.137| 
 
-`tablenet_baseline_adam_gradclipping_1` is used as the model weights as it has the lowest validation loss of 0.212 and decent values of binary mean IOU 0.753 and 0.689. The model weight is available for users to download in my repository if they do not want to train the model.
+`tablenet_baseline_adam_gradclipping_1` is used as my model weights as it has the lowest validation loss of 0.212 and decent values of binary mean IOU 0.753 and 0.689. The model checkpoint is available for users to download in my Github Repository [lightning-tablenet](https://github.com/claudiamohh/lightning-tablenet) if they do not want to train the model.
 
-After training my best model, OCR tesseract was used to predict and recognize content of the columns. And lastly, a gradio demo is created where users are able to drag/upload an image and the output will return a dataframe of the contents in the table. 
+---
+
+After training the model with gradient clipping, OCR tesseract was used to predict and recognize content of the columns. And lastly, a gradio demo is created where users are able to drag/upload an image and the output will return a dataframe of the contents in the table. 
 ![Screenshot 2022-08-24 173202](https://user-images.githubusercontent.com/107597583/186386131-392d7866-91fe-4bb9-9655-ac260f1f4d29.png)
 
+--- 
 Learning points from this project: 
-- Setting an EDA on the Marmot Dataset
-- Create model checkpoints 
-- Read TensorBoard graphs
-- To fix parameters when model is not learning/training loss increases
-- Demo using gradio
-- Having the best practice of coding like writing docstring, descriptive variable names
-
- Github Repository: [lightning-tablenet](https://github.com/claudiamohh/lightning-tablenet)
+- Learned to create an EDA on the Marmot Dataset
+- Learned to create model checkpoints 
+- Learned to read TensorBoard graphs
+- Learned to fix parameters when model is not learning/training loss increases
+- Learned to demo using Gradio interface
+- Learned to have the best coding practice (e.g., writing docstring, descriptive variable names)
