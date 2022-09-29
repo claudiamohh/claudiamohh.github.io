@@ -1,32 +1,50 @@
 ## Annotation of Table Structure Dataset for microsoft/table-transformer Model
 
-My last project was to extract tables from pdf files. This project demands 3 smaller tasks:
-  - table detection (TD), locates the table
-  - table structure recognition (TSR), recognizes the structure of a table in terms of rows, columns, and cells
-  - functional analysis (FA), which recognizes the keys and values of the table. 
+In this project, I had to annotate custom table structure dataset that was used to train the table-transformer model by Microsoft. The tasks of the table-transformer model by Microsoft is to do:  
+  1. Table detection (TD), locates the table
+  2. Table structure recognition (TSR), recognizes the structure of a table in terms of rows, columns, and cells
+  3. Functional analysis (FA), which recognizes the keys and values of the table. 
+ 
+![image](https://user-images.githubusercontent.com/107597583/193000041-1cfae44b-cfaa-4f36-8f38-6a464cdaebc4.png)
 
-I started off with annotating the pdf files using prodigy to study the different cases of each table in the pdf files. 
-This annotation was important as it gave me a better idea on how to start and write scripts for the table transformer model to process. 
+Microsoft has also provided the pre-trained models for table detection and table structure recognition trained for 20 epochs. More information can be found in Microsoft's Github Repository: [table-transformer](https://github.com/microsoft/table-transformer). 
 
-An example of how the annotation looks like:
-
-![Screenshot 2022-08-22 at 2 41 07 PM](https://user-images.githubusercontent.com/107597583/192674214-f128e6cf-8ee7-4028-8e24-5a1f5df4f004.png)
+---
+I started off by using Prodigy interface, shown below, to annotate different table components (e.g., tables, rows, columns, etc.) on PDF files. 
 
 ![image](https://user-images.githubusercontent.com/107597583/192675101-f39bca5a-9fce-42aa-84a9-2b20b707f0ec.png)
 
-There were some file that were tedious to annotate and those difficult cases can be found here: https://handshakesbydc.atlassian.net/browse/AI-335. 
+Figure below contains the annotated labels:
 
-After annotating the pdf files, I then proceeded to convert the prodigy annotations jsonl files to xml files. This is done to extract tables information only.  
+![Screenshot 2022-08-22 at 2 41 07 PM](https://user-images.githubusercontent.com/107597583/192674214-f128e6cf-8ee7-4028-8e24-5a1f5df4f004.png)
 
-![image](https://user-images.githubusercontent.com/107597583/192673459-e7c47c4f-bdaa-4ac4-8e53-2929631b3fe7.png) 
+There are a total of 7 labels, 6 labels shown in the image above and an additional label 'no objects'. 
+Further explanation of the labels:
+  - 'table': Contains only table content, not including title and description of the table. It can be overlapped by other labels. 
+  - 'table column': Must be interconnected with each other (left to right) and can bigger than the table's label.
+  - 'table row': Must be interconnected with each other (top to bottom) and can be bigger than the table's label.
+  - 'table column header': Header of the table only, in special cases it contains multiple rows.
+  - 'table projected row header': Subheaders in the table. 
+  - 'table spanning cell': Cell that spans across several rows or columns, can cover multiple rows or columns. 
+  - 'no object'
+   
+In Handshakes, there was an additional label 'crop' that is not in the table-transformer model by Microsoft. The purpose of this label is to crop the image which  contains the table title, table description, table footnote and table content. This will then be the input of the table structure model. 
 
+While annotating the files, I documented certain tedious and confusing cases which can be found here [Handshakes Internal Jira Ticket](https://handshakesbydc.atlassian.net/browse/AI-335). An example of a confusing case is shown below. 
+
+![image](https://user-images.githubusercontent.com/107597583/193007211-3df74dd7-221e-4e68-b182-246027295f91.png)
+
+There are overlapping contents in the yellow and turqoise bounding boxes, where the yellow bounding box should only contain table row header and the turqoise bounding box should only contain numerical values for this table. However, this will be dealt with during the table structure pre-processing. 
+
+After annotating the pdf files, I proceeded to convert the prodigy annotations jsonl files to xml files and work on table detection to locate tables. 
+ 
+Below is an example of table detection, where the green bounding box detects the table. 
 ![image](https://user-images.githubusercontent.com/107597583/192673497-a712a56b-d06e-400d-8379-9de73848e536.png)
 
-The first image is the original pdf while the second image is after detecting the tables. The tables are bounded by the green bounding boxes, which is the input of the table transformer model to return the tables. 
+In addition to those above, I have learned to test my codes using unittests, defining the code’s intent more precisely and have a more decoupled architecture. 
 
-In addition to those above, I have also learned to write tests to test my codes, these tests help to define the code’s intent more precisely and have a more decoupled architecture. 
-
+---
 Learning points from this project: 
-- Annotating dataset correctly
-- Writing and testing unittests  
-- Converting jsonl files to xml files
+- Learned to annotate dataset correctly
+- Learned to write and test unittests  
+- Learned to convert jsonl files to xml files
