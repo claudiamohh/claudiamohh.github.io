@@ -51,10 +51,10 @@ As for the CNN model, it takes in the original image without reshaping/flattenin
 
 ---
 
-Overall, these are my learning points from this project: 
-  - Using MNIST (handwritten digits) and CIFAR10 (coloured images) datasets 
-  - Increasing the weights of CNN models (small, middle, large) by increasing the number of convolutional layers 
-  - Training with different optimizers (Adam, SGD) and learning rate to find the best fit model
-  - Difference between Pytorch and Pytorch Lightning 
-  - Added argsparse to suit user's preference 
+Overall, below are my learning points from this project: 
+  - Learned to use MNIST (handwritten digits) and CIFAR10 (coloured images) datasets 
+  - Learned to finetune the weights of CNN models (small, middle, large) by increasing the number of convolutional layers 
+  - Learned to train with different optimizers (Adam, SGD) and learning rate to find the best fit model
+  - Learned the differences between Pytorch and Pytorch Lightning 
+  - Learned to add argsparse to suit user's preference 
 
