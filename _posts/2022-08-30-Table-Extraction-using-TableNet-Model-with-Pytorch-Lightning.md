@@ -1,6 +1,6 @@
 ## Table Extraction using TableNet Model with Pytorch Lightning
 
-This project uses semantic segmentation to label each pixel of an image with a corresponding class of what is being represented. One popular approach for semantic segmentation models is to follow an encoder/decoder structure, which explains the reason of using TableNet model. 
+This project is a semantic segmentation task that labels each pixel of an image with a corresponding class of what is being represented. One popular approach for semantic segmentation models is to follow an encoder/decoder structure, which explains the reason of using TableNet model. 
 
 ---
 ### Dataset
@@ -22,8 +22,8 @@ This project uses semantic segmentation to label each pixel of an image with a c
 
  ---
 ### Experimental Results and Discussion 
-
- Initially, the baseline model with Stochastic Gradient Descent (SGD) optimizer was not learning and it had instable training loss, spiking up and down. Hence, the model was subsequently trained with different parameters and Adam optimizer. Although these new models still have instable training loss, the one with gradient clipping was found to stabilize the training loss. Below are the results of the models with different parameters, trained for 3 times to get the best accuracy.  
+  
+ As the baseline model was not learning, I tried to fine-tune the model with different optimizers, types of backbone models and learning rate. The different optimizers used are: (1) Adam optimizer and (2) Stochastic Gradient Descent (SGD) optimizer. TableNet models trained with Adam opimizer had an instable training loss; spiking up and down while models trained with SGD optimizer were not learning (eg. highest validation loss when trained with SGD optimizer, refer to row-21). After training with different parameters, such as, low learning rates (i.e, 5e-3), using VGG-19 with batch normalisation, gradient clipping and weight decay, I found the model with gradient clipping to be the best. It was also able to stabilize the model training process. Below are the results of the models with different parameters, each trained for 3 times get the lowest validation loss.  
  
 | Model | No. of epochs | Validation Loss | Binary mean IOU for table | Binary mean IOU for column | 
 |-------|---------------|-----------------|---------------------------|----------------------------|
@@ -50,7 +50,7 @@ This project uses semantic segmentation to label each pixel of an image with a c
 |21. tablenet_baseline_sgd_onecycelr_lowlr_2|91|0.804|0.161|0.233 |
 |22. tablenet_baseline_sgd_onecycelr_lowlr_3|37|0.648|0.177| 0.137| 
 
-`tablenet_baseline_adam_gradclipping_1` is used as my model weights as it has the lowest validation loss of 0.212 and decent values of binary mean IOU 0.753 and 0.689. The model checkpoint is available for users to download in my Github Repository [lightning-tablenet](https://github.com/claudiamohh/lightning-tablenet) if they do not want to train the model.
+`tablenet_baseline_adam_gradclipping_1` has the lowest validation loss of 0.212 and decent values of binary mean IOU 0.753 and 0.689. This model checkpoint is available for users to download in my Github Repository [lightning-tablenet](https://github.com/claudiamohh/lightning-tablenet) if they do not want to train the model.
 
 ---
 
