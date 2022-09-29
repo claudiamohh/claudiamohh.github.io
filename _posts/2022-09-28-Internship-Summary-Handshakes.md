@@ -32,7 +32,7 @@ For more details on each project, it can be found here:
 ### Learning Experiences In Handshakes:
 - Different types of image classification tasks: Image Classification task and Semantic Segmentation task
 - Hands-on experience with PyTorch and PyTorch Lightning
-- Differences between Toy Dataset (eg. MNIST, CIFAR10) vs Real Word Dataset (i.e., Marmot, PDF files)
+- Differences between Toy Dataset (eg. MNIST, CIFAR10) vs Real World Dataset (i.e., Marmot, PDF files)
 - Using Gradio to demo TableNet model
 - Familarize with python scripting, github branching concept and submitting Github Pull Requests to work with other developers
 - Best practice of:
