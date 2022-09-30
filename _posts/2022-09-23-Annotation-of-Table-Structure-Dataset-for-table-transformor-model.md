@@ -10,7 +10,7 @@ In this project, I had to annotate a custom table structure dataset that was use
 Microsoft has also provided the pre-trained models for table detection and table structure recognition trained for 20 epochs. More information can be found in Microsoft's Github Repository: [table-transformer](https://github.com/microsoft/table-transformer). 
 
 ---
-I started off by using Prodigy interface, shown below, to annotate different table components (e.g., tables, rows, columns, etc.) on PDF files. 
+I started off by using Prodigy interface, an exmample shown below, to annotate different table components (e.g., tables, rows, columns, etc.) on PDF files. 
 
 ![image](https://user-images.githubusercontent.com/107597583/192675101-f39bca5a-9fce-42aa-84a9-2b20b707f0ec.png)
 
@@ -18,7 +18,7 @@ Visualisation of the official table structure dataset released by Microsoft show
 
 ![Screenshot 2022-08-22 at 2 41 07 PM](https://user-images.githubusercontent.com/107597583/192674214-f128e6cf-8ee7-4028-8e24-5a1f5df4f004.png)
 
-There are a total of 7 labels, 6 labels shown in the image above and an additional label 'no objects'. 
+There are 7 labels in total, 6 labels shown in the image above and an additional label 'no objects'. 
 Further explanation of the labels:
   - 'table': Contains only table content, not including title and description of the table. It can be overlapped by other labels. 
   - 'table column': Must be interconnected with each other (left to right).
@@ -34,11 +34,10 @@ While annotating the files, I documented certain tedious and confusing cases whi
 
 ![image](https://user-images.githubusercontent.com/107597583/193007211-3df74dd7-221e-4e68-b182-246027295f91.png)
 
-There are overlapping contents in the yellow and turqoise bounding boxes, where the yellow bounding box should only contain table row header and the turqoise bounding box should only contain numerical values for this table. In the third last row, 'Exceptional item included in Depreciation, amortisation and impairments' fall under the first and second column. 
+There are overlapping contents in the yellow and turqoise bounding boxes, where in this table, the yellow bounding box should only contain table row header and the turqoise bounding box should only contain numerical values. In the third last row, 'Exceptional item included in Depreciation, amortisation and impairments' falls under the first and second column. 
 
-After annotating the pdf files, I proceeded to convert the prodigy annotations jsonl files to xml files and work on table detection to locate tables. 
- 
-Visualisation of the converted XML is shown below, where the table is in the green bounding box. 
+After annotating the pdf files, I proceeded to convert the prodigy annotations JSONL files to XML files and work on table detection to locate tables. 
+Visualisation of the converted XML is shown below, where the table is bounded by the green bounding box. 
 ![image](https://user-images.githubusercontent.com/107597583/192673497-a712a56b-d06e-400d-8379-9de73848e536.png)
 
 In addition to those above, I have learned to test my codes using unittests, defining the code’s intent more precisely and have a more decoupled architecture. 
@@ -47,4 +46,4 @@ In addition to those above, I have learned to test my codes using unittests, def
 Learning points from this project: 
 - Learned to annotate dataset correctly
 - Learned to write and test unittests  
-- Learned to convert jsonl files to xml files
+- Learned to convert JSONL files to XML files
