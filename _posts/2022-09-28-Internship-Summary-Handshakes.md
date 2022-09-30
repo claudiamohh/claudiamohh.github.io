@@ -36,7 +36,7 @@ For more details on each project, it can be found here:
 - Using Gradio to demo TableNet model
 - Familarize with Python scripting, Github branching concept and submitting Github Pull Requests to work with other developers
 - Best practice of:
-     - Writing docstring
+     - Writing documentation
      - Naming descriptive variable names
      - Proper structure of Python code and directory
      - Naming Git branches
