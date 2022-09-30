@@ -8,7 +8,7 @@ Figure below contains sample images of the MNIST dataset.
 
 ![image](https://user-images.githubusercontent.com/107597583/192945073-410f9dc9-6b7d-4369-97d7-25d3f3fefbbd.png)
 
-The second dataset, CIFAR10, is most widely used for image classification tasks. The dataset has 60,000 coloured images, with each sample as a 32x32 colour image. The images belong to one of the predefined classes: airplanes, cars, birds, cats, deer, dogs, frogs, horses, ships and trucks. 
+The second dataset, CIFAR10, is most widely used for image classification tasks. The dataset has 60,000 coloured images, with each sample as a 32x32 colour image. The images belong to one of the predefined classes: airplanes, cars, birds, cats, deers, dogs, frogs, horses, ships and trucks. 
 
 Figure below are sample images of the CIFAR10 dataset. 
 
@@ -18,7 +18,7 @@ Figure below are sample images of the CIFAR10 dataset.
    
  Similar to others, I prototyped my image classification models on Google Colab notebooks and trained my models with the free GPU provided. Firstly, I wrote all my model training codes with PyTorch, in order to have a solid fundamental understanding of the native PyTorch style. Subsequently, I wrote the codes again with PyTorch Lightning framework. By doing this, I had the hands-on experience in both frameworks and was able to see the benefits and differences of using them.
     
- Afterwhich, I converted all my models' training codes from Google Colab notebook to Python scripts, allowing users to train the models via command. In addition, I have added [argparse module](https://docs.python.org/3/library/argparse.html) to write user-friendly command-line interfaces which allow users to select different arguments to train their models. 
+ Afterwhich, I converted all my models' training codes from Google Colab notebook to Python scripts, allowing users to train the models via command. In addition, I have added [argparse module](https://docs.python.org/3/library/argparse.html) to write user-friendly command-line interfaces which allowed users to select different arguments to train their models. 
 
   For more information, please refer to my Github Repository: [Pytorch Image Classifier](https://github.com/claudiamohh/pytorch-image-classifier). 
   
@@ -45,7 +45,7 @@ A more detailed explanation of Linear model is to firstly, flatten an input imag
 ![image](https://user-images.githubusercontent.com/107597583/192959280-af5cc07d-dbb8-4fb0-a70b-78be90d1086a.png)
 
 
-As for the CNN model, it takes in the original image without reshaping/flattening as the input. The image will then be processed and passed through a series of Convolutional layers, Pooling layers and transformed into a 1D vector at the end of the model for classification. The 1D vector represents decimal probabilites to each class in a multi-class problem, adding up to 1.0. The class of the highest probability score in the vector is the predicted class index. Architecture of a CNN model is illustrated and shown in the following figure: 
+As for the CNN model, it takes in the original image without reshaping/flattening as the input. The image will then be processed and passed through a series of Convolutional layers, Pooling layers and transformed into a 1D vector at the end of the model for classification. The 1D vector represents decimal probabilites to each class in a multi-class problem, all probabilities adding up to 1.0. The class of the highest probability score in the vector is the predicted class index. Architecture of a CNN model is illustrated and shown in the following figure: 
 
 ![image](https://user-images.githubusercontent.com/107597583/192958169-9371c62a-34a2-4a6c-b045-10844b9f8068.png)
 
